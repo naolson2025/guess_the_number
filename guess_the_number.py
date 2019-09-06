@@ -36,22 +36,24 @@ def check_guess(guess, secret):
 
 
 def main():
+    play_again = "Yes"
+    while play_again != 'stop':
+        (low, high) = configure_range()
+        low = input("Choose the low number for the range: ")
+        high = input("Choose the high number for the range: ")
+        secret = generate_secret(low, high)
+        cntr = 0
+        while True:
+            cntr = cntr + 1
+            guess = get_guess()
+            result = check_guess(guess, secret)
+            print(result)
 
-    (low, high) = configure_range()
-    low = input("Choose the low number for the range: ")
-    high = input("Choose the high number for the range: ")
-    secret = generate_secret(low, high)
-    cntr = 0
-    while True:
-        cntr = cntr + 1
-        guess = get_guess()
-        result = check_guess(guess, secret)
-        print(result)
-
-        if result == correct:
-            print("It took you: ",cntr, "guesses.")
-            break
-
+            if result == correct:
+                print("It took you: ",cntr, "guesses.")
+                break
+        play_again = input("Press enter to play again or type 'Stop' to end the game: ")
+        play_again = play_again.lower()
 
 if __name__ == '__main__':
     main()
