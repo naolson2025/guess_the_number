@@ -38,6 +38,8 @@ def check_guess(guess, secret):
 def main():
 
     (low, high) = configure_range()
+    low = input("Choose the low number for the range: ")
+    high = input("Choose the high number for the range: ")
     secret = generate_secret(low, high)
     cntr = 0
     while True:
