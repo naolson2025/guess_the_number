@@ -39,6 +39,8 @@ def main():
     play_again = "Yes"
     while play_again != 'stop':
         (low, high) = configure_range()
+        low = input("Choose the low number for the range: ")
+        high = input("Choose the high number for the range: ")
         secret = generate_secret(low, high)
         cntr = 0
         while True:
@@ -52,7 +54,6 @@ def main():
                 break
         play_again = input("Press enter to play again or type 'Stop' to end the game: ")
         play_again = play_again.lower()
-
 
 if __name__ == '__main__':
     main()
